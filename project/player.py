@@ -5,7 +5,7 @@ from timer1 import Timer
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, pos, group, collision_sprites):
+    def __init__(self, pos, group, collision_sprites,tree_sprites):
         super().__init__(group)
 
         self.import_assets()    # write on top
@@ -38,8 +38,24 @@ class Player(pygame.sprite.Sprite):
         self.tool_index=0
         self.selected_tool = self.tools[self.tool_index]
 
+        #interaction
+        self.tree_sprites=tree_sprites 
+
     def use_tool(self):
-        print('tool used')
+        if self.selected_tool == 'hoe':
+            pass
+        if self.selected_tool == 'axe':
+            #  for tree in self.tree_sprites.sprites():
+            #     if tree.rect.collidepoint(self.target_pos):
+            #         tree.damage()
+            pass
+        if self.selected_tool == 'water':
+            pass
+
+
+    def get_target_pos(self):
+        
+         self.target_pos = self.rect.center + PLAYER_TOOL_OFFSET[self.status.split('_')[0]]      
 
     def import_assets(self):
         self.animation = {
@@ -167,6 +183,7 @@ class Player(pygame.sprite.Sprite):
         self.input()
         self.get_status()
         self.update_timers()
+        self.get_target_pos()
 
         self.move(dt)
         self.animate(dt)

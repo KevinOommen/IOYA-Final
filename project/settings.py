@@ -2,7 +2,7 @@ from pygame.math import Vector2
 import pygame ,sys
 
 #screen settings
-WIDTH, HEIGHT = 1200, 600
+WIDTH, HEIGHT = 1280, 720
 TITLE = "IOYA:THE STRUGGLE"
 FPS = 60
 TILESIZE = 64
@@ -11,6 +11,19 @@ TILESIZE = 64
 OVERLAY_POSITIONS = {
 	'tool' : (40, HEIGHT - 15), 
 	'seed': (70, HEIGHT - 5)
+}
+
+
+PLAYER_TOOL_OFFSET = {
+	'left': Vector2(-50,40),
+	'right': Vector2(50,40),
+	'up': Vector2(0,-10),
+	'down': Vector2(0,50)
+}
+
+APPLE_POS = {
+	'Small': [(18,17), (30,37), (12,50), (30,45), (20,30), (30,10)],
+	'Large': [(30,24), (60,65), (50,50), (16,40),(45,50), (42,70)]
 }
 
 
