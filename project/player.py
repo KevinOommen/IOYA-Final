@@ -45,17 +45,17 @@ class Player(pygame.sprite.Sprite):
         if self.selected_tool == 'hoe':
             pass
         if self.selected_tool == 'axe':
-            #  for tree in self.tree_sprites.sprites():
-            #     if tree.rect.collidepoint(self.target_pos):
-            #         tree.damage()
-            pass
+             for tree in self.tree_sprites.sprites():
+                if tree.rect.collidepoint(self.target_pos):
+                    tree.damage()
+        
         if self.selected_tool == 'water':
             pass
 
 
     def get_target_pos(self):
         
-         self.target_pos = self.rect.center + PLAYER_TOOL_OFFSET[self.status.split('_')[0]]      
+          self.target_pos = self.rect.center + PLAYER_TOOL_OFFSET[self.status.split('_')[0]]      
 
     def import_assets(self):
         self.animation = {
